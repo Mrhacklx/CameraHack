@@ -27,13 +27,13 @@ First of all This tool host a phishing site on attacker local network. This tool
 
 ## Installation :
 <div>
-    <p> apt update -y && apt upgrade -y</p><br>
-    <p>apt install git wget php curl -y</p><br>
+    <p> apt update -y && apt upgrade -y</p>
+    <p>apt install git wget php curl -y</p>
     <p>git clone https://github.com/Mrhacklx/CameraHack</p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+    <p>cd CameraHack</p>
+    <p>chmod +x *</p>
+    <p>bash setup</p>
+    <p>bash CamHack</p>
 </div>
 ### [+] Preview 
 ![Hack anyone's camera and get images](files/ch.gif)
