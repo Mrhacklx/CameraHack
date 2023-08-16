@@ -26,8 +26,15 @@
 First of all This tool host a phishing site on attacker local network. This tool gives two port forwarding option (NGROK or CloudFlare) to take website over the internet. Now come on the main Point, attacker simply open the tool by using terminal and generate a link, when Link is generated attacker send that link to the target. If target open the link, target ip will transfer to the attacker. After Website load, the website ask for Camera access and when target give the permission the website will take cam shots one by one and send it to the Attacker.
 
 ## Installation :
-#### Link : https://www.onlinehacking.in/hack-front-camera-target-phone-using-termux-linux
-`
+<div>
+    <p> apt update -y && apt upgrade -y</p><br>
+    <p>apt install git wget php curl -y</p><br>
+    <p>git clone https://github.com/Mrhacklx/CameraHack</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+</div>
 ### [+] Preview 
 ![Hack anyone's camera and get images](files/ch.gif)
 
@@ -36,7 +43,7 @@ First of all This tool host a phishing site on attacker local network. This tool
  - Live target image.
  - Easy to use
  - Gives anonymity
- - It gives you Responsive Website.
+ - It gives you Responsive Website. oo
  - Three Templates
  - Get IP, Location, Device type and Browser
  - Dual Tunneling (Ngrok and Cloudflare)
@@ -80,19 +87,6 @@ First of all This tool host a phishing site on attacker local network. This tool
 ***This tool is developed for educational purposes. Here it demonstrates how camera phishing works. If anybody wants to gain unauthorized access to someones camera, he/she may try out this at his/her own risk. You have your own responsibilities and you are liable to any damage or violation of laws by this tool. The author is not responsible for any misuse of CameraHack!***
 
 
-
-
-
-## 👨🏻‍💻 CONNECT WITH US :
-
-
-<a href="https://github.com/OnlineHacKing"><img title="Github" src="https://img.shields.io/badge/Online-hacking-brightgreen?style=for-the-badge&logo=github"></a>
-[![Instagram](https://img.shields.io/badge/INSTAGRAM-FOLLOW-red?style=for-the-badge&logo=instagram)](https://www.instagram.com/suman333mondal/)
-[![Instagram](https://img.shields.io/badge/WEBSITE-VISIT-yellow?style=for-the-badge&logo=blogger)](https://www.onlinehacking.xyz)
-[![Instagram](https://img.shields.io/badge/LINKEDIN-CONNECT-red?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sumam333mondal/)
-[![Instagram](https://img.shields.io/badge/FACEBOOK-LIKE-red?style=for-the-badge&logo=facebook)](https://fb.com/adminonlinehacking)
-[![Instagram](https://img.shields.io/badge/TELEGRAM-CHANNEL-red?style=for-the-badge&logo=telegram)](https://telegram.dog/OnlineHacking)
-<a href="https://www.youtube.com/channel/UC8pmZJAlagdZ7bb0TBlogYw"><img title="YouTube" src="https://img.shields.io/badge/YouTube-Online Hacking-red?style=for-the-badge&logo=Youtube"></a>
 
 
 # ■□■ ⚠ Warning ⚠ ■□■
